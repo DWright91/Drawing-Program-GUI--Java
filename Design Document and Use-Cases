@@ -8,24 +8,24 @@ Drawing a Triangle
   •	Post-conditions: A triangle is formed on the canvas based on the three clicked points.
 
 2.	Detailed Steps:
-•	User selects the "Triangle" tool from the toolbar.
-•	The cursor changes, indicating the start of the triangle drawing.
-•	User clicks the canvas to define the first point of the triangle.
-•	After the first click, a point is displayed on the canvas.
-•	User clicks for the second point; a line is drawn between the first and second points.
-•	User clicks for the third point; a triangle is formed connecting the three points.
-•	Cursor returns to the default after the third click.
+  •	User selects the "Triangle" tool from the toolbar.
+  •	The cursor changes, indicating the start of the triangle drawing.
+  •	User clicks the canvas to define the first point of the triangle.
+  •	After the first click, a point is displayed on the canvas.
+  •	User clicks for the second point; a line is drawn between the first and second points.
+  •	User clicks for the third point; a triangle is formed connecting the three points.
+  •	Cursor returns to the default after the third click.
 
 3.	Sequence Diagram:
-User -> View: Selects "Triangle" tool
-View -> Controller: Tool selected (Triangle)
-Controller -> View: Cursor change (Triangle)
-User -> View: Mouse clicks (3 times)
-View -> Controller: Mouse click events (3)
-Controller -> Model: Process clicked points
-Model -> View: Render points and lines
-View -> Model: Complete triangle rendering
-Model -> View: Update canvas with triangle
+      User -> View: Selects "Triangle" tool
+      View -> Controller: Tool selected (Triangle)
+      Controller -> View: Cursor change (Triangle)
+      User -> View: Mouse clicks (3 times)
+      View -> Controller: Mouse click events (3)
+      Controller -> Model: Process clicked points
+      Model -> View: Render points and lines
+      View -> Model: Complete triangle rendering
+      Model -> View: Update canvas with triangle
 
 Triangle Feature Trace:
 1.	User's Actions:
