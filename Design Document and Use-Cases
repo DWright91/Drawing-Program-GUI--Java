@@ -1,0 +1,200 @@
+# Design Document and Use-Cases
+----------------------------------------------------------------------------------------
+Drawing a Triangle
+1.	Use Case: User draws a triangle by clicking three points on the canvas.
+•	Actors: User, View
+•	Description: User selects the "Triangle" tool and clicks three points successively on the canvas to create a triangle.
+•	Pre-conditions: View is initialized; user selects the "Triangle" tool.
+•	Post-conditions: A triangle is formed on the canvas based on the three clicked points.
+
+2.	Detailed Steps:
+•	User selects the "Triangle" tool from the toolbar.
+•	The cursor changes, indicating the start of the triangle drawing.
+•	User clicks the canvas to define the first point of the triangle.
+•	After the first click, a point is displayed on the canvas.
+•	User clicks for the second point; a line is drawn between the first and second points.
+•	User clicks for the third point; a triangle is formed connecting the three points.
+•	Cursor returns to the default after the third click.
+
+3.	Sequence Diagram:
+User -> View: Selects "Triangle" tool
+View -> Controller: Tool selected (Triangle)
+Controller -> View: Cursor change (Triangle)
+User -> View: Mouse clicks (3 times)
+View -> Controller: Mouse click events (3)
+Controller -> Model: Process clicked points
+Model -> View: Render points and lines
+View -> Model: Complete triangle rendering
+Model -> View: Update canvas with triangle
+
+Triangle Feature Trace:
+1.	User's Actions:
+•	User selects the "Triangle" tool in the GUI.
+2.	View Actions:
+•	View receives the tool selection event and initializes the triangle drawing process.
+•	Changes the cursor to indicate triangle drawing.
+3.	Controller Actions:
+•	Controller manages the cursor change and forwards the command to start triangle drawing.
+•	Listens for mouse click events.
+4.	User's Actions:
+•	User clicks on the canvas three times to define three points for the triangle.
+5.	Controller Actions:
+•	Controller captures mouse clicks, processing each point for the triangle.
+•	Manages the rendering of points, lines between clicked points, and the final triangle.
+6.	Model Actions:
+•	Model receives the clicked points and handles the rendering of points and lines based on these clicks.
+•	Updates the UI to display the formed triangle.
+7.	View Actions:
+•	View updates the canvas after the third click to display the formed triangle.
+
+----------------------------------------------------------------------------------------
+Drawing a Polygon
+1.	Use Case: User draws a polygon by clicking multiple points on the canvas.
+•	Actors: User, View
+•	Description: User selects the "Polygon" tool and clicks multiple points successively on the canvas to create a polygon.
+•	Pre-conditions: View is initialized; user selects the "Polygon" tool.
+•	Post-conditions: A polygon is formed on the canvas based on the clicked points.
+
+2.	Detailed Steps:
+•	User selects the "Polygon" tool from the toolbar.
+•	The cursor changes to indicate the start of the polygon drawing.
+•	User clicks the canvas to define the first point of the polygon.
+•	After each click, a line is drawn between consecutive points.
+•	User continues clicking points until completing the polygon.
+•	If the user clicks the right mouse button, a line connects the first and last points, completing the polygon.
+•	Cursor returns to the default after completing or canceling the polygon.
+
+3.	Sequence Diagram:
+User -> View: Selects "Polygon" tool
+View -> Controller: Tool selected (Polygon)
+Controller -> View: Cursor change (Polygon)
+User -> View: Mouse clicks (n times)
+View -> Controller: Mouse click events (n)
+Controller -> Model: Process clicked points
+Model -> View: Render points and lines
+User -> View: Right-click (Finish Polygon)
+View -> Model: Complete polygon rendering
+Model -> View: Update canvas with polygon
+
+Polygon Feature Trace:
+1.	User's Actions:
+•	User selects the "Polygon" tool in the GUI.
+2.	View Actions:
+•	View receives the tool selection event and initializes the polygon drawing process.
+•	Changes the cursor to indicate polygon drawing.
+3.	Controller Actions:
+•	Controller manages the cursor change and forwards the command to start polygon drawing.
+•	Listens for the mouse click events.
+4.	User's Actions:
+•	User clicks on the canvas multiple times to define the points for the polygon.
+5.	Controller Actions:
+•	Controller captures mouse clicks, processing each point for the polygon.
+•	Manages the rendering of points and lines between clicked points.
+6.	Model Actions:
+•	Model receives the clicked points and handles the rendering of points and lines based on these clicks.
+•	Renders lines between consecutive clicked points.
+7.	User's Actions:
+•	User right-clicks to finish drawing the polygon.
+8.	Controller Actions:
+•	Controller captures the right-click event, finalizing the polygon drawing.
+•	Manages the rendering of the final polygon.
+9.	Model Actions:
+•	Model updates the GUI to display the completed polygon on the canvas.
+
+----------------------------------------------------------------------------------------
+Moving an Item
+1.	Use Case: User moves selected item(s) by dragging and releasing on the canvas.
+•	Actors: User, View
+•	Description: User selects the "Move" tool, selects item(s), drags them to a new position, and releases to move them on the canvas.
+•	Pre-conditions: View is initialized, items are selectable, and user then selects the "Move" tool.
+•	Post-conditions: Selected item(s) are translated by the drag distance.
+
+2.	Detailed Steps:
+•	User selects the "Move" tool from the toolbar.
+•	The cursor changes to indicate item movement.
+•	User clicks and selects one or multiple items to move.
+•	User clicks, drags the selected item(s) to a new position, and releases the mouse.
+•	The selected item(s) move according to the drag distance.
+•	After releasing, the items positions are updated on the canvas.
+•	Undo/Redo functionality is available to revert or repeat the movement.
+
+3.	Sequence Diagram:
+User -> View: Selects "Move" tool
+View -> Controller: Tool selected (Move)
+Controller -> View: Cursor change (Move)
+User -> View: Selects item(s) and drags
+View -> Controller: Mouse drag-events
+Controller -> Model: Translate selected item(s)
+Model -> View: Update item(s) positions
+User -> View: Releases mouse
+View -> Model: Finalize item(s) movement
+Model -> View: Update canvas with new item positions
+
+Move Item Feature Trace:
+1.	User's Actions:
+•	User selects the "Move" tool in the GUI.
+2.	View Actions:
+•	View receives the tool selection event and initializes the move item process.
+•	Changes the cursor to indicate the item movement.
+3.	Controller Actions:
+•	Controller manages the cursor change and forwards the command to start moving items.
+•	Listens for mouse events (click, drag, release).
+4.	User's Actions:
+•	User clicks on the selected item(s) and drags them to a new location on the canvas.
+5.	Controller Actions:
+•	Controller captures the mouse click, drag, and release events.
+•	Calculates the distance and direction of movement based on the mouse movement.
+6.	Model Actions:
+•	Model receives the information about the drag distance and direction.
+•	Translates the selected item(s) by the calculated distance.
+7.	View Actions:
+•	View updates the canvas to display the moved item(s) in the new position.
+8.	User's Actions:
+•	User releases the mouse button to complete the item movement.
+9.	Controller Actions:
+•	Controller finalizes the item movement process.
+•	Manages the rendering of the updated item(s) on the canvas.
+10.	Model Actions:
+•	Model updates the GUI to display the item(s) in the new position on the canvas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Drawing Program Updates and Feature Changes:
+
+1.	View Class:
+•	Add functionality: Incorporate methods to handle the events triggered by the new buttons (TriangleButton, PolygonButton, MoveButton).
+Additional Classes:
+1.	TriangleButton:
+•	Purpose: Acts as a button to trigger the triangle drawing functionality.
+2.	TriangleCommand :
+•	Purpose: Manages the logic and actions associated with drawing a triangle.
+3.	PolygonButton:
+•	Purpose: Serves as a button to trigger the polygon drawing functionality.
+4.	PolygonCommand:
+•	Purpose: Controls the logic and actions tied to drawing a polygon.
+5.	MoveButton:
+•	Purpose: Acts as a button to initiate the item(s) movement functionality.
+6.	MoveCommand:
+•	Purpose: Manages the movement logic and actions for selected items.
+Purpose of Methods in New and Modified Classes:
+•	TriangleButton / PolygonButton / MoveButton:
+•	actionPerformed(ActionEvent event): Initiates the respective command and activates the associated drawing or movement process.
+•	TriangleCommand / PolygonCommand / MoveCommand:
+•	execute(): Executes the drawing or movement action based on the captured points or drag distance.
+•	undo(): Reverts the drawing or movement action performed.
+•	redo(): Reapplies the drawing or movement action after undoing.
+•	View (Modified):
+•	Additional methods to handle the new button clicks and interaction with the canvas, triggering the respective commands (TriangleCommand, PolygonCommand, MoveCommand).
+•	Model (Modified):
+•	Handling methods if data management or selection tracking for drawn shapes or moved items is required. Refresh view to see actions for triangle, polygon, and move.
