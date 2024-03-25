@@ -19,12 +19,7 @@ left click and cursor returns to default. Undo/Redo should remove/restore entire
 
 Moving an item:
 
-Some item(or items) have to be selected when move is invoked; otherwise move has no effect. When
-the move button is clicked, cursor changes. Mouse has to be clicked, dragged some distance, and
-released; all the selected items will be translated by that distance. Note that if mouse is clicked
-at (x1, y1) and released at (x2, y2) all the selected items must be translated by (x2-x1),
-(y2-y1). This will require that all items have a translate() method; see how the Delete operation
-is implemented for a similar example. Undo/Redo should reverse/repeat the translation.
+
 ----------------------------------------------------------------------------------------
 Drawing Panel: 
 
