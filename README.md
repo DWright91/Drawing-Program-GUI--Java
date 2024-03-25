@@ -5,7 +5,8 @@ Purpose: Create and design a drawing program simmiliar to paint, utilizing a GUI
 Operations: draw line, draw triangle, draw polygon, select/unselect one-to-many objects at a time, delete one-to-many objects at a time, insert label, save, open, undo/redo, move.
 
 Drawing a Triangle: 
-  • The triangle is specified by clicking on three points. The system responds
+    
+    • The triangle is specified by clicking on three points. The system responds
     as follows: Button click changes cursor. Shows a point after one click; after 2 clicks, shows a line
     between two clicked points; after 3 clicks, shows triangle and cursor returns to default. Undo/Redo
     should remove/restore entire triangle.
