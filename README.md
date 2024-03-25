@@ -2,7 +2,18 @@
 
 Purpose: Create and design a drawing program simmiliar to paint, utilizing a GUI (Graphical User Iterface).
 
-Operations: draw line, draw triangle, draw polygon, select/unselect one-to-many objects at a time, delete one-to-many objects at a time, insert label, save, open, undo/redo, move.
+Operations: 
+
+        • draw line 
+        • draw triangle 
+        • draw polygon 
+        • select/unselect one-to-many objects at a time 
+        • delete one-to-many objects at a time 
+        • insert label
+        • save
+        • open 
+        • undo/redo 
+        • move
 
 Drawing a Triangle: 
     
