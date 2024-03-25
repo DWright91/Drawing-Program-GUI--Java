@@ -29,131 +29,131 @@ Drawing a Triangle
 
 Triangle Feature Trace:
 1.	User's Actions:
-•	User selects the "Triangle" tool in the GUI.
+  •	User selects the "Triangle" tool in the GUI.
 2.	View Actions:
-•	View receives the tool selection event and initializes the triangle drawing process.
-•	Changes the cursor to indicate triangle drawing.
+  •	View receives the tool selection event and initializes the triangle drawing process.
+  •	Changes the cursor to indicate triangle drawing.
 3.	Controller Actions:
-•	Controller manages the cursor change and forwards the command to start triangle drawing.
-•	Listens for mouse click events.
+  •	Controller manages the cursor change and forwards the command to start triangle drawing.
+  •	Listens for mouse click events.
 4.	User's Actions:
-•	User clicks on the canvas three times to define three points for the triangle.
+  •	User clicks on the canvas three times to define three points for the triangle.
 5.	Controller Actions:
-•	Controller captures mouse clicks, processing each point for the triangle.
-•	Manages the rendering of points, lines between clicked points, and the final triangle.
+  •	Controller captures mouse clicks, processing each point for the triangle.
+  •	Manages the rendering of points, lines between clicked points, and the final triangle.
 6.	Model Actions:
-•	Model receives the clicked points and handles the rendering of points and lines based on these clicks.
-•	Updates the UI to display the formed triangle.
+  •	Model receives the clicked points and handles the rendering of points and lines based on these clicks.
+  •	Updates the UI to display the formed triangle.
 7.	View Actions:
-•	View updates the canvas after the third click to display the formed triangle.
+  •	View updates the canvas after the third click to display the formed triangle.
 
 ----------------------------------------------------------------------------------------
 Drawing a Polygon
 1.	Use Case: User draws a polygon by clicking multiple points on the canvas.
-•	Actors: User, View
-•	Description: User selects the "Polygon" tool and clicks multiple points successively on the canvas to create a polygon.
-•	Pre-conditions: View is initialized; user selects the "Polygon" tool.
-•	Post-conditions: A polygon is formed on the canvas based on the clicked points.
+  •	Actors: User, View
+  •	Description: User selects the "Polygon" tool and clicks multiple points successively on the canvas to create a polygon.
+  •	Pre-conditions: View is initialized; user selects the "Polygon" tool.
+  •	Post-conditions: A polygon is formed on the canvas based on the clicked points.
 
 2.	Detailed Steps:
-•	User selects the "Polygon" tool from the toolbar.
-•	The cursor changes to indicate the start of the polygon drawing.
-•	User clicks the canvas to define the first point of the polygon.
-•	After each click, a line is drawn between consecutive points.
-•	User continues clicking points until completing the polygon.
-•	If the user clicks the right mouse button, a line connects the first and last points, completing the polygon.
-•	Cursor returns to the default after completing or canceling the polygon.
+  •	User selects the "Polygon" tool from the toolbar.
+  •	The cursor changes to indicate the start of the polygon drawing.
+  •	User clicks the canvas to define the first point of the polygon.
+  •	After each click, a line is drawn between consecutive points.
+  •	User continues clicking points until completing the polygon.
+  •	If the user clicks the right mouse button, a line connects the first and last points, completing the polygon.
+  •	Cursor returns to the default after completing or canceling the polygon.
 
 3.	Sequence Diagram:
-User -> View: Selects "Polygon" tool
-View -> Controller: Tool selected (Polygon)
-Controller -> View: Cursor change (Polygon)
-User -> View: Mouse clicks (n times)
-View -> Controller: Mouse click events (n)
-Controller -> Model: Process clicked points
-Model -> View: Render points and lines
-User -> View: Right-click (Finish Polygon)
-View -> Model: Complete polygon rendering
-Model -> View: Update canvas with polygon
+      User -> View: Selects "Polygon" tool
+      View -> Controller: Tool selected (Polygon)
+      Controller -> View: Cursor change (Polygon)
+      User -> View: Mouse clicks (n times)
+      View -> Controller: Mouse click events (n)
+      Controller -> Model: Process clicked points
+      Model -> View: Render points and lines
+      User -> View: Right-click (Finish Polygon)
+      View -> Model: Complete polygon rendering
+      Model -> View: Update canvas with polygon
 
 Polygon Feature Trace:
 1.	User's Actions:
-•	User selects the "Polygon" tool in the GUI.
+  •	User selects the "Polygon" tool in the GUI.
 2.	View Actions:
-•	View receives the tool selection event and initializes the polygon drawing process.
-•	Changes the cursor to indicate polygon drawing.
+  •	View receives the tool selection event and initializes the polygon drawing process.
+  •	Changes the cursor to indicate polygon drawing.
 3.	Controller Actions:
-•	Controller manages the cursor change and forwards the command to start polygon drawing.
-•	Listens for the mouse click events.
+  •	Controller manages the cursor change and forwards the command to start polygon drawing.
+  •	Listens for the mouse click events.
 4.	User's Actions:
-•	User clicks on the canvas multiple times to define the points for the polygon.
+  •	User clicks on the canvas multiple times to define the points for the polygon.
 5.	Controller Actions:
-•	Controller captures mouse clicks, processing each point for the polygon.
-•	Manages the rendering of points and lines between clicked points.
+  •	Controller captures mouse clicks, processing each point for the polygon.
+  •	Manages the rendering of points and lines between clicked points.
 6.	Model Actions:
-•	Model receives the clicked points and handles the rendering of points and lines based on these clicks.
-•	Renders lines between consecutive clicked points.
+  •	Model receives the clicked points and handles the rendering of points and lines based on these clicks.
+  •	Renders lines between consecutive clicked points.
 7.	User's Actions:
-•	User right-clicks to finish drawing the polygon.
+  • 	User right-clicks to finish drawing the polygon.
 8.	Controller Actions:
-•	Controller captures the right-click event, finalizing the polygon drawing.
-•	Manages the rendering of the final polygon.
+  •	Controller captures the right-click event, finalizing the polygon drawing.
+  •	Manages the rendering of the final polygon.
 9.	Model Actions:
-•	Model updates the GUI to display the completed polygon on the canvas.
+  •	Model updates the GUI to display the completed polygon on the canvas.
 
 ----------------------------------------------------------------------------------------
 Moving an Item
 1.	Use Case: User moves selected item(s) by dragging and releasing on the canvas.
-•	Actors: User, View
-•	Description: User selects the "Move" tool, selects item(s), drags them to a new position, and releases to move them on the canvas.
-•	Pre-conditions: View is initialized, items are selectable, and user then selects the "Move" tool.
-•	Post-conditions: Selected item(s) are translated by the drag distance.
+  •	Actors: User, View
+  •	Description: User selects the "Move" tool, selects item(s), drags them to a new position, and releases to move them on the canvas.
+  •	Pre-conditions: View is initialized, items are selectable, and user then selects the "Move" tool.
+  •	Post-conditions: Selected item(s) are translated by the drag distance.
 
 2.	Detailed Steps:
-•	User selects the "Move" tool from the toolbar.
-•	The cursor changes to indicate item movement.
-•	User clicks and selects one or multiple items to move.
-•	User clicks, drags the selected item(s) to a new position, and releases the mouse.
-•	The selected item(s) move according to the drag distance.
-•	After releasing, the items positions are updated on the canvas.
-•	Undo/Redo functionality is available to revert or repeat the movement.
+  •	User selects the "Move" tool from the toolbar.
+  •	The cursor changes to indicate item movement.
+  •	User clicks and selects one or multiple items to move.
+  •	User clicks, drags the selected item(s) to a new position, and releases the mouse.
+  •	The selected item(s) move according to the drag distance.
+  •	After releasing, the items positions are updated on the canvas.
+  •	Undo/Redo functionality is available to revert or repeat the movement.
 
 3.	Sequence Diagram:
-User -> View: Selects "Move" tool
-View -> Controller: Tool selected (Move)
-Controller -> View: Cursor change (Move)
-User -> View: Selects item(s) and drags
-View -> Controller: Mouse drag-events
-Controller -> Model: Translate selected item(s)
-Model -> View: Update item(s) positions
-User -> View: Releases mouse
-View -> Model: Finalize item(s) movement
-Model -> View: Update canvas with new item positions
+      User -> View: Selects "Move" tool
+      View -> Controller: Tool selected (Move)
+      Controller -> View: Cursor change (Move)
+      User -> View: Selects item(s) and drags
+      View -> Controller: Mouse drag-events
+      Controller -> Model: Translate selected item(s)
+      Model -> View: Update item(s) positions
+      User -> View: Releases mouse
+      View -> Model: Finalize item(s) movement
+      Model -> View: Update canvas with new item positions
 
 Move Item Feature Trace:
 1.	User's Actions:
-•	User selects the "Move" tool in the GUI.
+  •	User selects the "Move" tool in the GUI.
 2.	View Actions:
-•	View receives the tool selection event and initializes the move item process.
-•	Changes the cursor to indicate the item movement.
+  •	View receives the tool selection event and initializes the move item process.
+  •	Changes the cursor to indicate the item movement.
 3.	Controller Actions:
-•	Controller manages the cursor change and forwards the command to start moving items.
-•	Listens for mouse events (click, drag, release).
+  •	Controller manages the cursor change and forwards the command to start moving items.
+  •	Listens for mouse events (click, drag, release).
 4.	User's Actions:
-•	User clicks on the selected item(s) and drags them to a new location on the canvas.
+  •	User clicks on the selected item(s) and drags them to a new location on the canvas.
 5.	Controller Actions:
-•	Controller captures the mouse click, drag, and release events.
-•	Calculates the distance and direction of movement based on the mouse movement.
+  •	Controller captures the mouse click, drag, and release events.
+  •	Calculates the distance and direction of movement based on the mouse movement.
 6.	Model Actions:
-•	Model receives the information about the drag distance and direction.
-•	Translates the selected item(s) by the calculated distance.
+  •	Model receives the information about the drag distance and direction.
+  •	Translates the selected item(s) by the calculated distance.
 7.	View Actions:
-•	View updates the canvas to display the moved item(s) in the new position.
+  •	View updates the canvas to display the moved item(s) in the new position.
 8.	User's Actions:
-•	User releases the mouse button to complete the item movement.
+  •	User releases the mouse button to complete the item movement.
 9.	Controller Actions:
-•	Controller finalizes the item movement process.
-•	Manages the rendering of the updated item(s) on the canvas.
+  •	Controller finalizes the item movement process.
+  •	Manages the rendering of the updated item(s) on the canvas.
 10.	Model Actions:
-•	Model updates the GUI to display the item(s) in the new position on the canvas.
+  •	Model updates the GUI to display the item(s) in the new position on the canvas.
 
