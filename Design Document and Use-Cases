@@ -2,10 +2,10 @@
 ----------------------------------------------------------------------------------------
 Drawing a Triangle
 1.	Use Case: User draws a triangle by clicking three points on the canvas.
-•	Actors: User, View
-•	Description: User selects the "Triangle" tool and clicks three points successively on the canvas to create a triangle.
-•	Pre-conditions: View is initialized; user selects the "Triangle" tool.
-•	Post-conditions: A triangle is formed on the canvas based on the three clicked points.
+  •	Actors: User, View
+  •	Description: User selects the "Triangle" tool and clicks three points successively on the canvas to create a triangle.
+  •	Pre-conditions: View is initialized; user selects the "Triangle" tool.
+  •	Post-conditions: A triangle is formed on the canvas based on the three clicked points.
 
 2.	Detailed Steps:
 •	User selects the "Triangle" tool from the toolbar.
